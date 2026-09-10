@@ -1,16 +1,725 @@
-## Hi there 👋
+<!DOCTYPE html>
+<html lang="es">
 
-<!--
-**AlexaS1287/AlexaS1287** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<head>
+    <meta charset="UTF-8">
 
-Here are some ideas to get you started:
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+    <title>Bitácora - Proyecto de Tecnología</title>
+
+    <style>
+
+        /* ============================= */
+        /* CONFIGURACIÓN GENERAL */
+        /* ============================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #fff0f7,
+                #f7eaff,
+                #eaf4ff
+            );
+
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        /* ============================= */
+        /* ENCABEZADO */
+        /* ============================= */
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #e14385,
+                #bc13fe
+            );
+
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin-bottom: 12px;
+
+            text-shadow:
+                0 0 5px rgba(255,255,255,0.7),
+                0 0 15px rgba(255,255,255,0.3);
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+
+        /* ============================= */
+        /* MENÚ */
+        /* ============================= */
+
+        nav {
+            background-color: white;
+            padding: 15px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #bc13fe;
+
+            font-weight: bold;
+
+            padding: 10px 18px;
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #bc13fe;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ============================= */
+        /* CONTENIDO PRINCIPAL */
+        /* ============================= */
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 40px auto;
+        }
+
+
+        .titulo-principal {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-principal h2 {
+            color: #e14385;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+
+        /* ============================= */
+        /* TARJETAS DE LAS FASES */
+        /* ============================= */
+
+        .fase {
+            background-color: white;
+
+            margin-bottom: 40px;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.10);
+
+            border-left: 7px solid #bc13fe;
+
+            transition: 0.3s;
+        }
+
+        .fase:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 30px rgba(188,19,254,0.20);
+        }
+
+
+        .numero-fase {
+            display: inline-block;
+
+            background: linear-gradient(
+                135deg,
+                #e14385,
+                #bc13fe
+            );
+
+            color: white;
+
+            padding: 7px 18px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        .fase h2 {
+            color: #bc13fe;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .fase h3 {
+            color: #e14385;
+
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+
+        .fase p {
+            margin-bottom: 15px;
+        }
+
+
+        /* ============================= */
+        /* IMÁGENES */
+        /* ============================= */
+
+        .imagen-proyecto {
+            display: block;
+
+            max-width: 700px;
+            width: 100%;
+
+            margin: 20px auto;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+
+            transition: 0.3s;
+        }
+
+        .imagen-proyecto:hover {
+            transform: scale(1.02);
+        }
+
+
+        /* ============================= */
+        /* VIDEOS */
+        /* ============================= */
+
+        video {
+            display: block;
+
+            width: 100%;
+            max-width: 700px;
+
+            margin: 20px auto;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+        }
+
+
+        /* ============================= */
+        /* VIDEO DE YOUTUBE */
+        /* ============================= */
+
+        .video-youtube {
+            position: relative;
+
+            width: 100%;
+            max-width: 750px;
+
+            margin: 20px auto;
+
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-youtube iframe {
+            width: 100%;
+            height: 100%;
+
+            border: none;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+        }
+
+
+        /* ============================= */
+        /* BOTONES */
+        /* ============================= */
+
+        .boton {
+            display: inline-block;
+
+            background: linear-gradient(
+                135deg,
+                #e14385,
+                #bc13fe
+            );
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            margin-top: 15px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 4px 12px rgba(188,19,254,0.25);
+        }
+
+        .boton:hover {
+            transform: translateY(-3px) scale(1.03);
+
+            box-shadow:
+                0 7px 20px rgba(188,19,254,0.4);
+        }
+
+
+        /* ============================= */
+        /* CAJA DOCUMENTO */
+        /* ============================= */
+
+        .documento {
+            background-color: #faf5ff;
+
+            border: 2px dashed #bc13fe;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
+        .documento .icono {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+
+        /* ============================= */
+        /* FOOTER */
+        /* ============================= */
+
+        footer {
+            background: linear-gradient(
+                135deg,
+                #e14385,
+                #bc13fe
+            );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* ============================= */
+        /* RESPONSIVE - CELULAR */
+        /* ============================= */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .fase {
+                padding: 22px;
+            }
+
+            .fase h2 {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================= -->
+    <!-- ENCABEZADO -->
+    <!-- ======================================= -->
+
+    <header>
+
+        <h1>Bitácora de Proyecto</h1>
+
+        <p>
+            Circuitos • Investigación • Infografía • Podcast
+        </p>
+
+    </header>
+
+
+
+    <!-- ======================================= -->
+    <!-- MENÚ -->
+    <!-- ======================================= -->
+
+    <nav>
+
+        <a href="#fase1">Fase 1</a>
+
+        <a href="#fase2">Fase 2</a>
+
+        <a href="#fase3">Fase 3</a>
+
+        <a href="#fase4">Fase 4</a>
+
+    </nav>
+
+
+
+    <!-- ======================================= -->
+    <!-- CONTENIDO -->
+    <!-- ======================================= -->
+
+    <main>
+
+
+        <section class="titulo-principal">
+
+            <h2>Contenido del Proyecto</h2>
+
+            <p>
+                En esta página se encuentran las cuatro fases
+                desarrolladas durante el proyecto.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================= -->
+        <!-- FASE 1 -->
+        <!-- ======================================= -->
+
+        <section class="fase" id="fase1">
+
+            <span class="numero-fase">
+                FASE 1
+            </span>
+
+
+            <h2>
+                Circuito
+            </h2>
+
+
+            <p>
+                En esta fase se presenta el desarrollo y
+                funcionamiento del circuito realizado.
+            </p>
+
+
+            <!-- FOTO DEL CIRCUITO -->
+
+            <h3>
+                📷 Fotografía del circuito
+            </h3>
+
+
+            <img
+                class="imagen-proyecto"
+                src="recursos/circuito.jpg"
+                alt="Fotografía del circuito"
+            >
+
+
+
+            <!-- VIDEO DEL CIRCUITO -->
+
+            <h3>
+                🎬 Video del circuito
+            </h3>
+
+
+            <video controls>
+
+                <source
+                    src="recursos/circuito.mp4"
+                    type="video/mp4"
+                >
+
+                Tu navegador no puede reproducir este video.
+
+            </video>
+
+
+        </section>
+
+
+
+        <!-- ======================================= -->
+        <!-- FASE 2 -->
+        <!-- ======================================= -->
+
+        <section class="fase" id="fase2">
+
+            <span class="numero-fase">
+                FASE 2
+            </span>
+
+
+            <h2>
+                Investigación
+            </h2>
+
+
+            <p>
+                En esta fase se presenta el documento
+                correspondiente a la investigación realizada.
+            </p>
+
+
+            <div class="documento">
+
+                <div class="icono">
+                    📄
+                </div>
+
+                <h3>
+                    Documento de investigación
+                </h3>
+
+                <p>
+                    Haz clic en el botón para abrir
+                    el documento.
+                </p>
+
+
+                <a
+                    class="boton"
+                    href="recursos/investigacion.docx"
+                    target="_blank"
+                >
+
+                    Abrir investigación
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================= -->
+        <!-- FASE 3 -->
+        <!-- ======================================= -->
+
+        <section class="fase" id="fase3">
+
+            <span class="numero-fase">
+                FASE 3
+            </span>
+
+
+            <h2>
+                Infografía
+            </h2>
+
+
+            <p>
+                En esta fase se presenta la infografía
+                elaborada como parte del proyecto.
+            </p>
+
+
+            <h3>
+                🖼️ Infografía
+            </h3>
+
+
+            <img
+                class="imagen-proyecto"
+                src="recursos/infografia.jpg"
+                alt="Infografía del proyecto"
+            >
+
+
+        </section>
+
+
+
+        <!-- ======================================= -->
+        <!-- FASE 4 -->
+        <!-- ======================================= -->
+
+        <section class="fase" id="fase4">
+
+            <span class="numero-fase">
+                FASE 4
+            </span>
+
+
+            <h2>
+                Podcast
+            </h2>
+
+
+            <p>
+                En esta fase se presenta el podcast
+                realizado como parte final del proyecto.
+            </p>
+
+
+            <h3>
+                🎙️ Podcast
+            </h3>
+
+
+            <!--
+            PEGA AQUÍ EL ENLACE EMBED DE YOUTUBE.
+
+            EJEMPLO:
+
+            Si tu video normal es:
+
+            https://www.youtube.com/watch?v=ABC123
+
+            debes colocar:
+
+            https://www.youtube.com/embed/ABC123
+            -->
+
+
+            <div class="video-youtube">
+
+                <iframe
+                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="Podcast del proyecto"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <!-- BOTÓN OPCIONAL PARA ABRIR EL VIDEO -->
+
+            <div style="text-align:center;">
+
+                <a
+                    class="boton"
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                >
+
+                    Ver podcast en una nueva ventana
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- ======================================= -->
+    <!-- PIE DE PÁGINA -->
+    <!-- ======================================= -->
+
+    <footer>
+
+        <p>
+            <strong>Bitácora de Proyecto</strong>
+        </p>
+
+        <p>
+            Alexa Cerezo
+            Ximena Rodriguez
+            Sofia Sum
+        </p>
+
+        <p>
+            © 2026
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
