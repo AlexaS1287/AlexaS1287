@@ -1,4 +1,4 @@
-# Proyecto Ximena Rodrigues, Sofia Sum, Alexa Cerezo
+# Proyecto Ximena Rodriguez, Sofia Sum, Alexa Cerezo
 
 Página web del proyecto de Tecnología.
 
